@@ -8,9 +8,9 @@ SynthDef created by AFrancob.
 ## Usage
 
 ```supercollider
-SuperDirt.start
+SuperDirt.start;
 AKWFSuperDirt.init(s);
-AKWFSuperDirt.synthsList
-Synth(\aguitar)
+AKWFSuperDirt.synthsList;
+Synth(\aguitar);
 ```
 
