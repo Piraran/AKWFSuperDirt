@@ -3,9 +3,9 @@ AKWFSuperDirt {
 
 	*makeSynthDef {|buffersMap|
 		buffersMap.do({|item|
-			var name = item.name.postln;
-			var min = item.buffers[0].bufnum.postln;
-			var max = item.buffers.last.bufnum.postln;
+			var name = item.name;
+			var min = item.buffers[0].bufnum;
+			var max = item.buffers.last.bufnum;
 
 
 			SynthDef(name, {
@@ -30,13 +30,13 @@ AKWFSuperDirt {
 		var validation = if(server == nil, {"A server instance must be passed to AWKF.init".throw});
 		var validation2 = if(~dirt == nil, {"SuperDirt must be initialized before this.".throw});
 
-		var waveShapeCatalogue ="wavetable".resolveRelative.postln;
+		var waveShapeCatalogue ="wavetable".resolveRelative;
 		var dirs = ["AKWF","_aguitar","_altosax","_birds","_bitreduced","_blended","_bw_saw","_bw_sawbright","_bw_sawgap","_bw_sawrounded","_bw_sin","_bw_sq","_bw_sqrounded","_bw_tri","_c604","_cello","_clarinett","_clavinet","_dbass","_distorted","_ebass","_eguitar","_eorgan","_epiano","_flute","_fmsynth","_granular","_hdrawn","_hvoice","_oboe","_oscchip","_overtone","_piano","_pluckalgo","_raw","_sinharm","_snippets","_stereo","_stringbox","_symetric","_theremin","_vgame","_vgamebasic","_violin"];
 		var buffersMap = dirs.collect({|dir|
 			var prefix = "AKWF";
 			var hasUnderScoreAt0 = dir[0].asString == "_";
 			var dirname = if(hasUnderScoreAt0, {prefix++dir}, {dir});
-			var path = ("wavetable/"++dirname++"/*").resolveRelative.postln;
+			var path = ("wavetable/"++dirname++"/*").resolveRelative;
 			(
 				name: if(hasUnderScoreAt0, {dir[1..]}, {prefix}).toLower,
 				buffers: SoundFile.collectIntoBuffers(path, server)
