@@ -1,4 +1,4 @@
-AKWFTidal {
+AKWFSuperDirt {
 	classvar <synthsList;
 
 	*makeSynthDef {|buffersMap|
